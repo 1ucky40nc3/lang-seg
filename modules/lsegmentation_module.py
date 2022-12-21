@@ -10,6 +10,8 @@ from argparse import ArgumentParser
 
 import pytorch_lightning as pl
 
+import torchmetrics
+
 from data import get_dataset, get_available_datasets
 
 from encoding.models import get_segmentation_model
@@ -209,12 +211,12 @@ class LSegmentationModule(pl.LightningModule):
         )
 
         self.num_classes = dset.num_class
-        self.train_accuracy = pl.metrics.Accuracy()
+        self.train_accuracy = torchmetrics.Accuracy()
 
         return dset
 
     def get_valset(self, dset, augment=False, **kwargs):
-        self.val_accuracy = pl.metrics.Accuracy()
+        self.val_accuracy = torchmetrics.Accuracy()
         self.val_iou = SegmentationMetric(self.num_classes)
 
         if augment == True:
