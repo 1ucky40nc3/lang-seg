@@ -1,0 +1,12 @@
+git+https://github.com/openai/CLIP.git@04f4dc2ca1ed0acc9893bd1a3b526a7e02c4bb10
+ninja
+git+https://github.com/krrish94/PyTorch-Encoding/
+pytorch-lightning
+altair
+streamlit
+timm
+tensorboardX
+test-tube
+wandb
+wandb
+torchmetrics==0.7
